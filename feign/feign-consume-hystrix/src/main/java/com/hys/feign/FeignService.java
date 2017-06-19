@@ -12,7 +12,8 @@ import com.hys.feign.fallback.FeignServiceFallback;
 /**
  * 默认不能上传附件 
  */
-@FeignClient(url="http://localhost:8092",name="produce",fallback=FeignServiceFallback.class)
+import com.hys.feign.fallbackfactory.FeignServiceFallbackFactory;
+@FeignClient(url="http://localhost:8092",name="produce",/*fallback=FeignServiceFallback.class,*/fallbackFactory=FeignServiceFallbackFactory.class)
 public interface FeignService {
 
 	@RequestMapping(value="/from/get/{id}",method=RequestMethod.GET)
