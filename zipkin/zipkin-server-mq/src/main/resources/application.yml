@@ -1,0 +1,35 @@
+spring:
+  freemarker.enabled: false
+  http:
+    multipart: 
+      max-file-size: 20Mb
+      max-request-size: 30Mb
+      resolve-lazily: false
+  rabbitmq:
+    host: ${RABBITMQ_HOST:192.168.229.128}
+    port: ${RABBITMQ_PORT:5672}
+    username: ${RABBITMQ_USERNAME:haoyasen}
+    password: ${RABBITMQ_PASSWORD:haoyasen}
+    listener:
+      concurrency: ${RABBITMQ_CONCURRENCY:2}
+      max-concurrency: ${RABBITMQ_MAX_CONCURRENCY:2}
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    schema: classpath:/mysql.sql
+    url: jdbc:mysql://${MYSQL_HOST:localhost}/zipkin_db
+    username: root
+    password: root
+    initialize: true
+    continueOnError: true
+  sleuth:
+    enabled: false
+    sampler:
+      percentage: 1.0
+      
+zipkin:
+  storage:
+    type: mysql
+
+logging:
+  level:
+    net.hzbox: DEBUG
