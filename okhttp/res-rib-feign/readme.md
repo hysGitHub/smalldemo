@@ -1,0 +1,1 @@
+https://github.com/linux-china/spring-boot-starter-okhttp3/blob/master/src/main/java/org/mvnsearch/spring/boot/okhttp3/OkHttp3AutoConfiguration.java
